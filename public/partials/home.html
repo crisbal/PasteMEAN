@@ -1,0 +1,13 @@
+<form ng-submit="addNote()"> 
+    <input type="text" ng-model="title" name="title">
+    <input type="text" ng-model="body" name="body">
+    <input type="submit" value="Save Note">
+</form>
+
+<ul class="pastes">
+    <li ng-repeat="paste in pastes | orderBy: paste.updated_at">
+      <a href="#/paste/{{paste._id}}">{{paste.title}}</a>
+    </li>
+</ul>
+
+<a ng-click="deletePastes()">Delete All</a>

@@ -1,0 +1,12 @@
+{
+  "name": "pastenode",
+  "description": "",
+  "version": "0.0.0",
+  "homepage": "",
+  "license": "GPL",
+  "private": true,
+  "dependencies": {
+    "angular": "~1.4.0",
+    "angular-route": "~1.4.0"
+  }
+}
