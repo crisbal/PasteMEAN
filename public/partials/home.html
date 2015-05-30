@@ -1,13 +1,42 @@
-<form ng-submit="addNote()"> 
-    <input type="text" ng-model="title" name="title">
-    <input type="text" ng-model="body" name="body">
-    <input type="submit" value="Save Note">
-</form>
+<h1 class="header">Pastenode</h1>
+<h5>A Pastebin clone made with the MEAN stack.</h5>  
 
-<ul class="pastes">
-    <li ng-repeat="paste in pastes | orderBy: paste.updated_at">
-      <a href="#/paste/{{paste._id}}">{{paste.title}}</a>
-    </li>
-</ul>
+<div class="section" >
+    <form class="col s12 " ng-submit="addNote()">
+        <div class="row center-align">
+            <div class="input-field col s12">
+                <input id="title" type="text" ng-model="title">
+                <label for="title">Title</label>
+            </div>
+            <div class="input-field col s12">
+                <textarea id="body" ng-model="body" class="materialize-textarea"></textarea>
+                <label for="body">Content</label>
+            </div>
+            <button class="btn waves-effect waves-light" type="submit">Save Paste
+                <i class="mdi-content-send right"></i>
+            </button>
+        </div>
+    </form>
+  </div>
 
-<a ng-click="deletePastes()">Delete All</a>
+<div class="section">
+    <h4 class="header">Latest Pastes</h4>
+    <ul class="pastes">
+        <li style="font-size: 1.5em" ng-repeat="paste in pastes | orderBy: paste.updated_at">
+          <a href="#/paste/{{paste._id}}">{{paste.title}}</a>
+        </li>
+        <li ng-show="!pastes.length">No pastes</li>
+        <br>
+        <div ng-show="pastes.length" class="right-align">
+            <a  class="waves-effect waves-light btn red" ng-click="deletePastes()"><i class="mdi-action-delete right"></i>Reset Pastes</a>
+        </div>
+    </ul>
+
+    
+</div>
+
+
+
+<br>
+<br>
+<br>
